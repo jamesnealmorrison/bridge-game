@@ -3,7 +3,7 @@ import configureStore from './app/store/configureStore'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './app/App/App';
 import AppProviders from './app/AppProviders'
 import * as serviceWorker from './serviceWorker';
 import { AppContainer } from 'react-hot-loader';
