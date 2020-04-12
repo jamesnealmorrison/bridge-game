@@ -1,11 +1,12 @@
 import React from 'react'
 import { MenuAreaLayout } from './MenuArea.style'
+import Button from '../../shared/components/Button'
 
 export class MenuArea extends React.PureComponent {
   render() {
     return (
       <MenuAreaLayout>
-        I'm in the menu area
+        <Button onClick={() => {console.log('CLICKED!')}}>START GAME</Button>
       </MenuAreaLayout>
     )
   }
