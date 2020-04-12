@@ -1,16 +1,18 @@
 import React from 'react';
-import './App.css';
-import { PageWrap } from './components/App.style'
+import { PageWrap } from './App.style'
 import { PlayingArea } from './components/PlayingArea'
+import { MenuArea } from './components/MenuArea'
+import { BiddingArea } from './components/BiddingArea'
+import { ScoringArea } from './components/ScoringArea'
 
 function App() {
   return (
     <React.Fragment>
       <PageWrap id="page-wrap">
-        HI, JIM. CAN YOU SEE ME?
-        <button>jim</button>
-        <PlayingArea>
-        </PlayingArea>
+        <MenuArea/>
+        <BiddingArea/>
+        <ScoringArea/>
+        <PlayingArea/>
       </PageWrap>
     </React.Fragment>
   );
