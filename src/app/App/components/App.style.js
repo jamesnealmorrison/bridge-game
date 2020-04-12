@@ -6,5 +6,5 @@ export const PageWrap = styled.div`
   position: relative;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `
