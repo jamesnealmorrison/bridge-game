@@ -2,13 +2,29 @@ import React from 'react'
 import { MenuAreaLayout } from './MenuArea.style'
 import Button from '../../shared/components/Button'
 import { createGame } from '../../../store/game/game.actions'
+import PropTypes from 'prop-types'
+import compose from 'lodash/fp/flowRight'
+import { connect } from 'react-redux'
 
-export class MenuArea extends React.PureComponent {
+export class MenuAreaBase extends React.PureComponent {
   render() {
+    console.log('props = ', this.props)
     return (
       <MenuAreaLayout>
-        <Button onClick={() => {createGame()}}>CREATE GAME</Button>
+        <Button onClick={() => {this.props.createNewGame()}}>CREATE GAME</Button>
       </MenuAreaLayout>
     )
   }
 }
+
+MenuAreaBase.propTypes = {
+  createNewGame: PropTypes.func,
+}
+
+export const mapDispatchToProps = {
+  createNewGame: () => createGame(),
+}
+
+export default compose(
+  connect(null, mapDispatchToProps),
+)(MenuAreaBase)
