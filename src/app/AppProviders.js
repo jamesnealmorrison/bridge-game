@@ -1,19 +1,19 @@
-import { ConnectedRouter } from 'react-router-redux'
+import { ConnectedRouter } from 'connected-react-router'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 import React from 'react'
 import createHistory from 'history/createBrowserHistory'
-import configureStore from './store/configureStore'
+import configureStore, { history } from './store/configureStore'
 
 const AppProviders = ({
-  history = createHistory(),
-  store = configureStore({}, history),
+  store = configureStore({}),
   children,
-}) => (
-  <Provider store={store}>
+}) => {
+  console.log('**** In AppProviders. store = ', store)
+  return <Provider store={store}>
     <ConnectedRouter history={history}>{children}</ConnectedRouter>
   </Provider>
-)
+}
 
 AppProviders.propTypes = {
   history: PropTypes.any,

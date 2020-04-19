@@ -1,12 +1,13 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
-
+import { createBrowserHistory } from 'history'
 import { AppStateRecord } from './app/app.records'
-import combinedReducer, { GlobalStateRecord } from './reducer'
+import createRootReducer, { GlobalStateRecord } from './reducer'
 
-export default function configureStore(initialState = {}, history) {
-console.log('in configureStore')
+export const history = createBrowserHistory()
+
+export default function configureStore(preloadedState) {
   // Create the store with two middlewares
   // 1. promiseMiddleware: Makes async easy
   // 2. routerMiddleware: Syncs the location/URL path to the state
@@ -28,11 +29,12 @@ console.log('in configureStore')
   const state = GlobalStateRecord({
     app: AppStateRecord({ apiToken: window.localStorage.getItem('apiToken') }),
   })
-  const finalState = state.merge(initialState)
+
+  const finalState = state.merge(preloadedState)
 
   const store = createStore(
-    combinedReducer,
-    finalState,
+    createRootReducer(history),
+    preloadedState,
     composeEnhancers(...enhancers),
   )
 
@@ -40,7 +42,7 @@ console.log('in configureStore')
   /* istanbul ignore next */
   if (module.hot) {
     module.hot.accept('./reducer', () => {
-      store.replaceReducer(combinedReducer)
+      store.replaceReducer(createRootReducer)
     })
   }
 

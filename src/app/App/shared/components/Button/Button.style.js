@@ -1,12 +1,7 @@
-import { transparentize } from 'polished'
-import anyPass from 'lodash/fp/overSome'
-import get from 'lodash/fp/get'
-import negate from 'lodash/fp/negate'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import {
   RippleEffect,
-  RippleWrap,
 } from '../Ripple/Ripple.style'
 import {
   focusShadow,
@@ -17,11 +12,6 @@ import { typoButton } from '../../../../helpers/styleMixins/type.style'
 import theme from '../../../../theme'
 
 const buttonSize = 2.25
-const buttonFabSize = 3.5
-const buttonFabSizeMini = 2.5
-const buttonIconSize = 2
-const buttonIconSizeMini = 1.5
-const largeButtonSize = 8
 
 export const FlatButtonBase = styled.button`
     background: transparent;
@@ -74,7 +64,7 @@ export const FlatButtonBase = styled.button`
     }
   `
 
-export const RaisedButtonBase = FlatButtonBase.extend`
+export const RaisedButtonBase = styled(FlatButtonBase)`
     background-color: ${theme.colorOffWhite};
     ${shadow2dp()} &:hover, &:active:active, &:focus:focus:not(:active) {
       background-color: ${theme.colorFaint};
