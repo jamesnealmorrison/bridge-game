@@ -8,12 +8,11 @@ import configureStore, { history } from './store/configureStore'
 const AppProviders = ({
   store = configureStore({}),
   children,
-}) => {
-  console.log('**** In AppProviders. store = ', store)
-  return <Provider store={store}>
+}) => (
+  <Provider store={store}>
     <ConnectedRouter history={history}>{children}</ConnectedRouter>
   </Provider>
-}
+)
 
 AppProviders.propTypes = {
   history: PropTypes.any,

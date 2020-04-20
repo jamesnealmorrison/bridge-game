@@ -8,7 +8,6 @@ import { connect } from 'react-redux'
 
 export class MenuAreaBase extends React.PureComponent {
   render() {
-    console.log('props = ', this.props)
     return (
       <MenuAreaLayout>
         <Button onClick={() => {this.props.createNewGame()}}>CREATE GAME</Button>

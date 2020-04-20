@@ -5,10 +5,12 @@ import always from 'lodash/fp/constant'
 import mapValues from 'lodash/fp/mapValues'
 
 import app from './app/app.reducer'
+import game from './game/game.reducer'
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
   app,
+  game,
 })
 
 export const GlobalStateRecord = new Record(
