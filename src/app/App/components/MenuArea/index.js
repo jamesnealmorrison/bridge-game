@@ -1,7 +1,7 @@
 import React from 'react'
 import { MenuAreaLayout } from './MenuArea.style'
 import Button from '../../shared/components/Button'
-import { createGame } from '../../../store/game/game.actions'
+import { createGame, joinGame } from '../../../store/game/game.actions'
 import PropTypes from 'prop-types'
 import compose from 'lodash/fp/flowRight'
 import { connect } from 'react-redux'
@@ -11,6 +11,7 @@ export class MenuAreaBase extends React.PureComponent {
     return (
       <MenuAreaLayout>
         <Button onClick={() => {this.props.createNewGame()}}>CREATE GAME</Button>
+        <Button onClick={() => {this.props.joinGame()}}>JOIN GAME</Button>
       </MenuAreaLayout>
     )
   }
@@ -18,10 +19,12 @@ export class MenuAreaBase extends React.PureComponent {
 
 MenuAreaBase.propTypes = {
   createNewGame: PropTypes.func,
+  joinGame: PropTypes.func,
 }
 
 export const mapDispatchToProps = {
   createNewGame: () => createGame(),
+  joinGame: () => joinGame(),
 }
 
 export default compose(

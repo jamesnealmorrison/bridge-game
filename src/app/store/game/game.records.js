@@ -1,6 +1,7 @@
 import { Record } from 'immutable'
 
 export const GameStateRecord = new Record({
-  jim: false,
-  morrison: null,  
+  uuid: null,
+  players: null,
+  dealer: null,
 })
