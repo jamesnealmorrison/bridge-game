@@ -5,7 +5,7 @@ export class BiddingArea extends React.PureComponent {
   render() {
     return (
       <BiddingAreaLayout>
-        I'm in the bidding area
+        I'm in the Bidding Area
       </BiddingAreaLayout>
     )
   }

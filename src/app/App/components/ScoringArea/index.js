@@ -5,7 +5,7 @@ export class ScoringArea extends React.PureComponent {
   render() {
     return (
       <ScoringAreaLayout>
-        I'm in the scoring area
+        I'm in the Scoring Area
       </ScoringAreaLayout>
     )
   }
