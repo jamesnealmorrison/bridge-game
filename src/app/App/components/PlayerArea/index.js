@@ -1,12 +1,20 @@
 import React from 'react'
 import { PlayerAreaLayout } from './PlayerArea.style'
+import { PlayerCardArea } from '../PlayerCardArea'
+import Button from '../../shared/components/Button'
 
 export class PlayerArea extends React.PureComponent {
   render() {
-    const {direction} = this.props
+    const {direction,
+    backgroundColor,
+    gridColumn,
+    gridRow,
+    gridTemplateColumns,
+    gridTemplateRows} = this.props
     return (
       <PlayerAreaLayout {...this.props}>
-        I'm in the {direction} Player Area
+        <PlayerCardArea direction={direction} />
+        <Button onClick={() => {console.log('CLICKED!')}}>Join as {direction}</Button>
       </PlayerAreaLayout>
     )
   }

@@ -11,10 +11,10 @@ function App() {
       <PageWrap id="page-wrap">
         <BiddingArea />
         <ScoringArea />
-        <PlayerArea direction="NORTH" backgroundColor="red" gridColumn="2" gridRow="1" />
-        <PlayerArea direction="SOUTH" backgroundColor="green" gridColumn="2" gridRow="3" />
-        <PlayerArea direction="EAST" backgroundColor="purple" gridColumn="3" gridRow="2"/>
-        <PlayerArea direction="WEST" backgroundColor="white" gridColumn="1" gridRow="2"/>
+        <PlayerArea direction="NORTH" backgroundColor="red" gridColumn="2" gridRow="1" flexDirection="column" />
+        <PlayerArea direction="SOUTH" backgroundColor="green" gridColumn="2" gridRow="3" flexDirection="column" />
+        <PlayerArea direction="EAST" backgroundColor="purple" gridColumn="3" gridRow="2" flexDirection="row" />
+        <PlayerArea direction="WEST" backgroundColor="white" gridColumn="1" gridRow="2" flexDirection="row" />
         <TrickArea />
       </PageWrap>
     </React.Fragment>
