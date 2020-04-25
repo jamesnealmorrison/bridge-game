@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import PropTypes from 'prop-types'
 
-export class PlayerAreaBase extends React.PureComponent {
+class PlayerArea extends React.PureComponent {
   render() {
     const {direction,
     backgroundColor,
@@ -27,7 +27,7 @@ export class PlayerAreaBase extends React.PureComponent {
   }
 }
 
-PlayerAreaBase.propTypes = {
+PlayerArea.propTypes = {
   playerDirection: PropTypes.string,
   direction: PropTypes.string,
 }
@@ -43,4 +43,4 @@ export const mapDispatchToProps =
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-)(PlayerAreaBase)
+)(PlayerArea)

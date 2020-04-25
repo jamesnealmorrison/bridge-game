@@ -3,7 +3,7 @@ import { PageWrap } from './App.style'
 import { BiddingArea } from './components/BiddingArea'
 import { ScoringArea } from './components/ScoringArea'
 import PlayerArea from './components/PlayerArea'
-import { TrickArea } from './components/TrickArea'
+import TrickArea from './components/TrickArea'
 
 function App() {
   return (
