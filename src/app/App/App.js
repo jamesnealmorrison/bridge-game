@@ -4,21 +4,41 @@ import { BiddingArea } from './components/BiddingArea'
 import { ScoringArea } from './components/ScoringArea'
 import PlayerArea from './components/PlayerArea'
 import TrickArea from './components/TrickArea'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { selectHand } from '../store/game/game.selectors'
 
-function App() {
-  return (
-    <React.Fragment>
-      <PageWrap id="page-wrap">
-        <BiddingArea />
-        <ScoringArea />
-        <PlayerArea direction="NORTH" backgroundColor="red" gridColumn="2" gridRow="1" flexDirection="column" />
-        <PlayerArea direction="SOUTH" backgroundColor="green" gridColumn="2" gridRow="3" flexDirection="column" />
-        <PlayerArea direction="EAST" backgroundColor="purple" gridColumn="3" gridRow="2" flexDirection="row" />
-        <PlayerArea direction="WEST" backgroundColor="white" gridColumn="1" gridRow="2" flexDirection="row" />
-        <TrickArea />
-      </PageWrap>
-    </React.Fragment>
-  );
+class App extends React.PureComponent {
+  render() {
+    const {
+      northHand,
+      southHand,
+      eastHand,
+      westHand,
+    } = this.props
+    return (
+      <React.Fragment>
+        <PageWrap id="page-wrap">
+          <BiddingArea />
+          <ScoringArea />
+          <PlayerArea hand={ northHand } direction="NORTH" gridColumn="2" gridRow="1" flexDirection="column" />
+          <PlayerArea hand={ southHand } direction="SOUTH" gridColumn="2" gridRow="3" flexDirection="column" />
+          <PlayerArea hand={ eastHand } direction="EAST" gridColumn="3" gridRow="2" flexDirection="row" />
+          <PlayerArea hand={ westHand } direction="WEST" gridColumn="1" gridRow="2" flexDirection="row" />
+          <TrickArea />
+        </PageWrap>
+      </React.Fragment>
+    )
+  }
 }
 
-export default App;
+export const mapStateToProps = state => ({
+  northHand: selectHand('NORTH', state),
+  southHand: selectHand('SOUTH', state),
+  eastHand: selectHand('EAST', state),
+  westHand: selectHand('WEST', state),
+})
+
+export default compose(
+  connect(mapStateToProps, null),
+)(App)

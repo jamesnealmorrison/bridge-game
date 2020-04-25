@@ -17,10 +17,12 @@ class PlayerArea extends React.PureComponent {
     gridTemplateColumns,
     gridTemplateRows,
     joinGame,
-    playerDirection,} = this.props
+    playerDirection,
+    hand,
+  } = this.props
     return (
       <PlayerAreaLayout {...this.props}>
-        <PlayerCardArea direction={direction} />
+        <PlayerCardArea direction={direction} hand={hand} />
         {playerDirection !== null || <Button onClick={() => {joinGame(direction)}}>Join as {direction}</Button> }
       </PlayerAreaLayout>
     )
