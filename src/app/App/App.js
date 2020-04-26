@@ -21,10 +21,10 @@ class App extends React.PureComponent {
         <PageWrap id="page-wrap">
           <BiddingArea />
           <ScoringArea />
-          <PlayerArea hand={ northHand } direction="NORTH" gridColumn="2" gridRow="1" />
-          <PlayerArea hand={ southHand } direction="SOUTH" gridColumn="2" gridRow="3" />
-          <PlayerArea hand={ eastHand } direction="EAST" gridColumn="3" gridRow="2" />
-          <PlayerArea hand={ westHand } direction="WEST" gridColumn="1" gridRow="2" />
+          <PlayerArea hand={ northHand } direction="NORTH" gridColumn="2" gridRow="1/3" />
+          <PlayerArea hand={ southHand } direction="SOUTH" gridColumn="2" gridRow="4/6" />
+          <PlayerArea hand={ eastHand } direction="EAST" gridColumn="3" gridRow="2/6" />
+          <PlayerArea hand={ westHand } direction="WEST" gridColumn="1" gridRow="2/6" />
           <TrickArea />
         </PageWrap>
       </React.Fragment>
