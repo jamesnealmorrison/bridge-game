@@ -8,10 +8,12 @@ export class PlayerCardArea extends React.PureComponent {
       direction,
       hand,
     } = this.props
-    console.log('direction = ', direction)
-    console.log('hand = ', hand)
+    let flexDirection = 'column'
+    if (direction === 'NORTH' || direction === 'SOUTH') {
+      flexDirection = 'row'
+    }
     return (
-      <PlayerCardAreaLayout {...this.props}>
+      <PlayerCardAreaLayout {...this.props} flexDirection= {flexDirection}>
         {hand && hand.cards.map(card =>(
           <Card rank={card.rank} suit={card.suit} />
         ))}
