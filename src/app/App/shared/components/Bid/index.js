@@ -1,7 +1,8 @@
 import React from 'react'
 import Button from '../Button'
-import { selectCurrentBid, selectGameStarted } from '../../../../store/app/app.selectors'
-import { setCurrentBid } from '../../../../store/app/app.actions'
+import { selectGameStarted } from '../../../../store/app/app.selectors'
+import { selectCurrentBid } from '../../../../store/game/game.selectors'
+import { setCurrentBid } from '../../../../store/game/game.actions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 

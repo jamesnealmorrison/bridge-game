@@ -5,5 +5,4 @@ export const AppStateRecord = new Record({
   gameStarted: false,
   apiToken: null,
   playerDirection: null,
-  currentBid: null,
 })

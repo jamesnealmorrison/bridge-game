@@ -5,3 +5,5 @@ export const selectHand = (direction, state) => {
     return null
   }
 }
+export const selectCurrentBid = state => state.game.currentBid
+export const selectCurrentTurn = state => state.game.currentTurn
