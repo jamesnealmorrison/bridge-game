@@ -9,6 +9,7 @@ export default function appReducer(state = GameStateRecord(), action) {
       console.log('updating game state')
       return state.set('players', action.payload.players)
        .set('dealer', action.payload.dealer)
+       .set('currentTurn', action.payload.currentTurn)
     case SET_CURRENT_BID:
       return state.set('currentBid', action.payload)
     default:

@@ -1,6 +1,8 @@
 import apiClient from '../../apiClient'
 import { JOIN_GAME, START_GAME } from '../app/app.types'
 import { SET_CURRENT_BID } from './game.types'
+import { selectCurrentTurn } from './game.selectors'
+import { selectPlayerDirection } from '../app/app.selectors'
 
 export const joinGame = (direction) => async (dispatch, getState) => {
   const res = await apiClient.put('/joinBridgeGame?direction='+direction)
@@ -23,8 +25,12 @@ export const setCurrentBid = (bidNumber, suit) => async (dispatch, getState) => 
   console.log('in setCurrentBid')
   console.log('bidNumber = ', bidNumber)
   console.log('suit = ', suit)
-  dispatch({
-    type: SET_CURRENT_BID,
-    payload: {bidNumber, suit}
-  })
+  if (selectCurrentTurn(getState()) !== selectPlayerDirection(getState())) {
+    alert('It is not your turn, dude')
+  } else {
+    dispatch({
+      type: SET_CURRENT_BID,
+      payload: {bidNumber, suit}
+    })
+  }
 }
