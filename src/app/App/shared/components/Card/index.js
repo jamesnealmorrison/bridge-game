@@ -8,7 +8,7 @@ class Card extends React.PureComponent {
     } = this.props
     let imageName = rank + '_' + suit + '.svg'
     return (
-      <img src={imageName} width="70" height="109"/>
+      <img src={imageName} width="100" height="150"/>
     )
   }
 }

@@ -5,8 +5,8 @@ export const PageWrap = styled.div`
   position: relative;
   display: grid;
   font-size: 1.25rem;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 200px 100px 325px 100px 200px;
+  grid-template-columns: 1.5fr 2fr 1.5fr;
+  grid-template-rows: 300px 325px 100px 200px;
   font-weight: normal;
   grid-column: 1/4;
   grid-row: 2;

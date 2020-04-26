@@ -5,6 +5,5 @@ export const PlayerCardAreaLayout = styled.div`
   font-size: 1.25rem;
   font-weight: normal;
   display: flex;
-  flex: 1;
-  flex-direction: ${p => p.flexDirection}
+  flex-wrap: wrap;
 `
