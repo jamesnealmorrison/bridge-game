@@ -13,6 +13,4 @@ class Card extends React.PureComponent {
   }
 }
 
-// Button.Raised = buttonFactory(RaisedButtonBase)
-
 export default Card
