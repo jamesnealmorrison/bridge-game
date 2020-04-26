@@ -22,8 +22,7 @@ class PlayerArea extends React.PureComponent {
   } = this.props
     return (
       <PlayerAreaLayout {...this.props}>
-        <PlayerCardArea direction={direction} hand={hand} />
-        {playerDirection !== null || <Button onClick={() => {joinGame(direction)}}>Join as {direction}</Button> }
+        {(playerDirection !== null) ? (<PlayerCardArea direction={direction} hand={hand} />) : (<Button onClick={() => {joinGame(direction)}}>Join as {direction}</Button>)}
       </PlayerAreaLayout>
     )
   }

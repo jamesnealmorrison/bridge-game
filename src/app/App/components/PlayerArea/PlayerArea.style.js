@@ -6,7 +6,4 @@ export const PlayerAreaLayout = styled.div`
   font-weight: normal;
   grid-column: ${p => p.gridColumn};
   grid-row: ${p => p.gridRow};
-  display: flex;
-  flex: 1;
-  flex-direction: ${p => p.flexDirection}
 `

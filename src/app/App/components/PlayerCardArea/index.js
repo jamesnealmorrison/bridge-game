@@ -1,5 +1,6 @@
 import React from 'react'
 import { PlayerCardAreaLayout } from './PlayerCardArea.style'
+import Card from '../../shared/components/Card'
 
 export class PlayerCardArea extends React.PureComponent {
   render() {
@@ -12,7 +13,7 @@ export class PlayerCardArea extends React.PureComponent {
     return (
       <PlayerCardAreaLayout {...this.props}>
         {hand && hand.cards.map(card =>(
-          card.rank + ' of ' + card.suit
+          <Card rank={card.rank} suit={card.suit} />
         ))}
       </PlayerCardAreaLayout>
     )
