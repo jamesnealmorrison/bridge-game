@@ -30,7 +30,7 @@ export const setCurrentBid = (bidNumber, suit) => async (dispatch, getState) => 
   } else {
     dispatch({
       type: SET_CURRENT_BID,
-      payload: {bidNumber, suit}
+      payload: {bidder: selectCurrentTurn(getState()), bidNumber, suit}
     })
   }
 }
