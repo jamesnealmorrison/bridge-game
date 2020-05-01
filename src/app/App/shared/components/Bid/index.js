@@ -26,22 +26,22 @@ class Bid extends React.PureComponent {
         if (bidNumber < currentBid.bidNumber) {
           showBid = false
         } else if (bidNumber === currentBid.bidNumber) {
-          if (suit === 'Clubs') {
+          if (suit === 'CLUB') {
             showBid = false
-          } else if (suit === 'Diamonds') {
-            if (currentBid.suit === 'Clubs') {
+          } else if (suit === 'DIAMOND') {
+            if (currentBid.suit === 'CLUB') {
               showBid = true
             } else {
               showBid = false
             }
-          } else if (suit === 'Hearts') {
-            if (currentBid.suit === 'Clubs' || currentBid.suit === 'Diamonds') {
+          } else if (suit === 'HEART') {
+            if (currentBid.suit === 'CLUB' || currentBid.suit === 'DIAMOND') {
               showBid = true
             } else {
               showBid = false
             }
-          } else if (suit === 'Spades') {
-            if (currentBid.suit === 'Clubs' || currentBid.suit === 'Diamonds' || currentBid.suit === 'Hearts') {
+          } else if (suit === 'SPADE') {
+            if (currentBid.suit === 'CLUB' || currentBid.suit === 'DIAMOND' || currentBid.suit === 'HEART') {
               showBid = true
             } else {
               showBid = false
@@ -60,7 +60,7 @@ class Bid extends React.PureComponent {
     }
     if (showBid) {
       return (
-        <Button onClick={() => {setCurrentBid(bidNumber, suit)}}>
+        <Button onClick={() => {setCurrentBid(bidNumber, suit, false)}}>
           { bidNumber }
           {(suit === 'NO_TRUMPS') ? (' NT') : (<img src={imageName} width="20" height="20"/>)}
         </Button>
