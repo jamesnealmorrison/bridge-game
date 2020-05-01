@@ -1,6 +1,6 @@
 import apiClient from '../../apiClient'
 import { JOIN_GAME, START_GAME } from '../app/app.types'
-import { SET_CURRENT_BID } from './game.types'
+import { UPDATE_GAME } from './game.types'
 import { selectCurrentTurn } from './game.selectors'
 import { selectPlayerDirection } from '../app/app.selectors'
 
@@ -28,9 +28,10 @@ export const setCurrentBid = (bidNumber, suit) => async (dispatch, getState) => 
   if (selectCurrentTurn(getState()) !== selectPlayerDirection(getState())) {
     alert('It is not your turn, dude')
   } else {
+    const res = await apiClient.put('/bid?direction='+selectCurrentTurn(getState())+'&bidNumber='+bidNumber+'&suit='+suit)
     dispatch({
-      type: SET_CURRENT_BID,
-      payload: {bidder: selectCurrentTurn(getState()), bidNumber, suit}
+      type: UPDATE_GAME,
+      payload: res
     })
   }
 }

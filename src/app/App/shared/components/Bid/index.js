@@ -46,8 +46,8 @@ class Bid extends React.PureComponent {
             } else {
               showBid = false
             }
-          } else if (suit === 'NoTrumps') {
-            if (currentBid.suit === 'NoTrumps') {
+          } else if (suit === 'NO_TRUMPS') {
+            if (currentBid.suit === 'NO_TRUMPS') {
               showBid = false
             } else {
               showBid = true
@@ -62,7 +62,7 @@ class Bid extends React.PureComponent {
       return (
         <Button onClick={() => {setCurrentBid(bidNumber, suit)}}>
           { bidNumber }
-          {(suit === 'NoTrumps') ? (' NT') : (<img src={imageName} width="20" height="20"/>)}
+          {(suit === 'NO_TRUMPS') ? (' NT') : (<img src={imageName} width="20" height="20"/>)}
         </Button>
       )
     } else {

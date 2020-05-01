@@ -1,1 +1,1 @@
-export const SET_CURRENT_BID = 'app/SET_CURRENT_BID'
+export const UPDATE_GAME = 'app/UPDATE_GAME'
