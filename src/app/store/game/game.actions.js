@@ -21,14 +21,14 @@ export const startGame = () => async (dispatch, getState) => {
   })
 }
 
-export const setCurrentBid = (bidNumber, suit, pass) => async (dispatch, getState) => {
+export const setCurrentBid = (level, suit, pass) => async (dispatch, getState) => {
   console.log('in setCurrentBid')
-  console.log('bidNumber = ', bidNumber)
+  console.log('level = ', level)
   console.log('suit = ', suit)
   if (selectCurrentTurn(getState()) !== selectPlayerDirection(getState())) {
     alert('It is not your turn, dude')
   } else {
-    const res = await apiClient.put('/bid?direction='+selectCurrentTurn(getState())+'&bidNumber='+bidNumber+'&suit='+suit + '&pass='+pass)
+    const res = await apiClient.put('/bid?direction='+selectCurrentTurn(getState())+'&level='+level+'&suit='+suit + '&pass='+pass)
     dispatch({
       type: UPDATE_GAME,
       payload: res

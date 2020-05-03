@@ -7,10 +7,15 @@ export const selectHand = (direction, state) => {
 }
 export const selectBidHistory = state => state.game.bidHistory
 export const selectCurrentBid = state => {
-  if (state.game.bidHistory) {
-    return state.game.bidHistory[state.game.bidHistory.length - 1]
-  } else {
+  if (state.game.bidHistory === null) {
     return null
+  } else {
+    let filterBidHistory = state.game.bidHistory.filter(bid => bid.level > 0)
+    if (filterBidHistory) {
+      return filterBidHistory[filterBidHistory.length - 1]
+    } else {
+      return null
+    }
   }
 }
 export const selectCurrentTurn = state => state.game.currentTurn

@@ -9,7 +9,7 @@ import { compose } from 'redux'
 class Bid extends React.PureComponent {
   render() {
     const {
-      bidNumber,
+      level,
       suit,
       currentBid,
       gameStarted,
@@ -23,9 +23,9 @@ class Bid extends React.PureComponent {
       if (currentBid === null) {
         showBid = true
       } else {
-        if (bidNumber < currentBid.bidNumber) {
+        if (level < currentBid.level) {
           showBid = false
-        } else if (bidNumber === currentBid.bidNumber) {
+        } else if (level === currentBid.level) {
           if (suit === 'CLUB') {
             showBid = false
           } else if (suit === 'DIAMOND') {
@@ -60,8 +60,8 @@ class Bid extends React.PureComponent {
     }
     if (showBid) {
       return (
-        <Button onClick={() => {setCurrentBid(bidNumber, suit, false)}}>
-          { bidNumber }
+        <Button onClick={() => {setCurrentBid(level, suit, false)}}>
+          { level }
           {(suit === 'NO_TRUMPS') ? (' NT') : (<img src={imageName} width="20" height="20"/>)}
         </Button>
       )
