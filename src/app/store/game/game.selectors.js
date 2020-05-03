@@ -11,10 +11,10 @@ export const selectCurrentBid = state => {
     return null
   } else {
     let filterBidHistory = state.game.bidHistory.filter(bid => bid.level > 0)
-    if (filterBidHistory) {
-      return filterBidHistory[filterBidHistory.length - 1]
-    } else {
+    if (filterBidHistory === null || filterBidHistory.length === 0) {
       return null
+    } else {
+      return filterBidHistory[filterBidHistory.length - 1]
     }
   }
 }
